@@ -48,19 +48,32 @@
         document.getElementById('quizForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Предотвращаем стандартное поведение формы
 
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const comments = document.getElementById('comments').value;
+
+            // Валидация email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Пожалуйста, введите корректный email.');
+                return;
+            }
+
             // Собираем данные из формы
             const formData = new FormData();
-            formData.append('entry.2005620554', document.getElementById('name').value);
-            formData.append('entry.1045781291', document.getElementById('email').value);
-            formData.append('entry.1065046570', document.getElementById('address').value);
-            formData.append('entry.1166974658', document.getElementById('phone').value);
-            formData.append('entry.839337160', document.getElementById('comments').value);
+            formData.append('entry.2005620554', name); // Имя
+            formData.append('entry.1045781291', email); // Email
+            formData.append('entry.1065046570', address); // Адрес
+            formData.append('entry.1166974658', phone); // Телефон
+            formData.append('entry.839337160', comments); // Комментарии
 
             // Отправляем данные через AJAX
             fetch('https://docs.google.com/forms/d/e/1FAIpQLSdkqmHbM98YfxXfFaWhWWr6KyuLJZrssY3wGVYyZrIK_Gl97A/formResponse', {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // Необходимо для отправки данных на внешний URL
+                mode: 'no-cors'
             })
             .then(() => {
                 alert('Спасибо за заполнение опросника!');
