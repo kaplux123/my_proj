@@ -3,51 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-        .main-content {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            border-radius: 4px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Предварительная информация</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Добро пожаловать на наш сайт!</h1>
-        <p>Для продолжения пройдите опросник ниже:</p>
+        <div class="container">
+            <h1>Добро пожаловать!</h1>
+            <p>Здесь вы можете получить предварительную информацию и перейти к опроснику.</p>
+        </div>
     </header>
 
-    <div class="main-content">
-        <a href="quiz.html" class="btn">Пройти опросник</a>
-    </div>
+    <main>
+        <section class="info-section">
+            <div class="container">
+                <h2>Информация</h2>
+                <p>Это пример текста с предварительной информацией о вашем продукте или услуге. Здесь можно рассказать о преимуществах, условиях и других важных деталях.</p>
+                <!-- Кнопка для перехода на опросник -->
+                <a href="quiz.html" class="btn">Перейти к опроснику</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Ваш сайт. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
 </html>
