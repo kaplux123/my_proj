@@ -2,14 +2,28 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  color: #2b2d2f; /* Темный текст для лучшего контраста */
-  background: linear-gradient(135deg, #00b140, #00c8a3); /* Зеленый фон с плавным переходом в тифани */
+  color: #ffffff;
+  background: linear-gradient(270deg, #00b140, #00c8a3, #4f74ff, #6a4fff);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Шапка сайта */
+/* Анимация переливающегося фона */
+@keyframes gradientShift {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
 header {
   padding: 40px 0;
   background: transparent;
@@ -29,33 +43,30 @@ header {
 }
 
 .logo {
-  height: 70px;
+  height: 80px;
   margin-bottom: 20px;
 }
 
-/* Основная часть */
 main {
   flex: 1;
   padding: 40px 0;
 }
 
-/* Информационная секция */
 .info-section {
   text-align: center;
-  color: #ffffff; /* Белый цвет текста для контраста */
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0.3); /* Немного затемнение фона для выделения текста */
+  color: #ffffff;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
 h2, h3 {
-  color: #00b140; /* Зеленый цвет для заголовков */
+  color: #ffffff;
 }
 
-/* Кнопка */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 14px 30px;
   background-color: #ffffff;
   color: #00b140;
   border-radius: 30px;
@@ -63,6 +74,7 @@ h2, h3 {
   font-weight: bold;
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
 }
 
 .btn:hover {
@@ -70,13 +82,11 @@ h2, h3 {
   transform: scale(1.05);
 }
 
-/* Блок с анимацией кота */
 .cat-container {
   text-align: center;
   margin-top: 40px;
 }
 
-/* Анимация кота */
 .animated-cat {
   width: 250px;
   height: auto;
@@ -92,13 +102,13 @@ h2, h3 {
   }
 }
 
-/* Подвал */
 footer {
   text-align: center;
   padding: 20px 0;
   background: transparent;
   font-size: 0.9em;
   color: #ffffff;
+  margin-top: 40px;
 }
 
 footer p {
