@@ -70,7 +70,7 @@
       <input type="text" id="name" required>
 
       <label for="email">Email:</label>
-      <input type="text" id="email" required>
+      <input type="email" id="email" required>
 
       <label for="address">Адрес:</label>
       <input type="text" id="address" required>
@@ -80,9 +80,6 @@
 
       <label for="comments">Комментарии:</label>
       <textarea id="comments"></textarea>
-
-      <label for="essay">Загрузите сочинение:</label>
-      <input type="file" id="essay" accept=".txt,.pdf,.doc,.docx" required>
 
       <button type="submit" class="btn">Отправить</button>
     </form>
@@ -101,10 +98,11 @@
       const address = document.getElementById('address').value;
       const phone = document.getElementById('phone').value;
       const comments = document.getElementById('comments').value;
-      const essayFile = document.getElementById('essay').files[0];
 
-      if (!essayFile) {
-        alert('Пожалуйста, загрузите файл сочинения.');
+      // Валидация email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert('Пожалуйста, введите корректный email.');
         return;
       }
 
@@ -114,15 +112,15 @@
       formData.append('entry.1065046570', address);
       formData.append('entry.1166974658', phone);
       formData.append('entry.839337160', comments);
-      formData.append('essayFile', essayFile); // <-- Файл, имя произвольное
 
-      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdMjxvh_d_RvknqYAAmq1Sc08oaV1G7wPWEEZRw14UygLz4Kg/formResponse', {
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdkqmHbM98YfxXfFaWhWWr6KyuLJZrssY3wGVYyZrIK_Gl97A/formResponse', {
         method: 'POST',
         body: formData,
         mode: 'no-cors'
       })
       .then(() => {
         alert('Спасибо за заполнение опросника!');
+        document.getElementById('quizForm').reset();
       })
       .catch((error) => {
         console.error('Ошибка при отправке данных:', error);
