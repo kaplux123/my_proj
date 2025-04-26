@@ -13,6 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  padding-top: 80px; /* Отступ для логотипа на больших экранах */
 }
 
 /* Анимированный фон с частицами */
@@ -39,6 +40,7 @@ body {
   object-fit: contain; /* Сохраняем пропорции */
   filter: brightness(0.8); /* Затемнение для контраста */
   animation: fadeInBanner 2s ease-in-out forwards;
+  max-height: 400px; /* Ограничение высоты для больших экранов */
 }
 
 @keyframes fadeInBanner {
@@ -56,8 +58,8 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  height: 60px; /* размер логотипа */
-  z-index: 10; /* поверх баннера */
+  height: 60px; /* Размер логотипа */
+  z-index: 10; /* Поверх баннера */
   opacity: 0;
   animation: fadeInLogo 2s ease-in-out forwards;
 }
@@ -166,6 +168,23 @@ li::before {
   transition: all 0.3s ease;
   margin-top: 20px;
   box-shadow: 0 6px 12px rgba(0, 255, 153, 0.5);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 255, 153, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: -1;
 }
 
 .btn:hover {
@@ -173,6 +192,11 @@ li::before {
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 255, 153, 0.8), 0 4px 6px rgba(0, 0, 0, 0.1);
   border-color: #ffffff;
+}
+
+.btn:active::after {
+  width: 200px;
+  height: 200px;
 }
 
 /* Анимированный кот */
@@ -221,4 +245,47 @@ footer p {
 .fade-in.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  body {
+    padding-top: 50px; /* Уменьшите отступ для мобильных устройств */
+  }
+
+  .logo {
+    position: relative; /* Переключитесь на относительное позиционирование */
+    height: 40px; /* Уменьшите размер логотипа */
+    top: 10px; /* Сдвиньте логотип выше */
+    left: 10px; /* Сдвиньте логотип левее */
+    margin: 0 auto; /* Центрируйте логотип */
+    display: block; /* Убедитесь, что он занимает всю ширину */
+    text-align: center; /* Выровняйте по центру */
+  }
+
+  .top-banner {
+    height: auto; /* Убедитесь, что баннер не обрезается */
+  }
+
+  .full-loger {
+    object-fit: cover; /* Измените на cover, чтобы изображение лучше масштабировалось */
+    height: 200px; /* Ограничьте высоту для мобильных устройств */
+  }
+
+  .info-section {
+    padding: 20px; /* Уменьшите отступы */
+  }
+
+  h3 {
+    font-size: 1.5rem; /* Уменьшите размер заголовков */
+  }
+
+  p {
+    font-size: 1rem; /* Уменьшите размер текста */
+  }
+
+  .btn {
+    padding: 12px 24px; /* Уменьшите размер кнопки */
+    font-size: 16px; /* Уменьшите размер текста кнопки */
+  }
 }
