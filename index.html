@@ -2,42 +2,53 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Сбер Университет</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <header>
-    <div class="container header-content">
-      <img src="logo.png" alt="Сбер Университет" class="logo" />
 
-  </header>
+  <!-- Анимированный фон с частицами -->
+  <div id="particles-js"></div>
+
+  <!-- Верхний баннер -->
+  <div class="top-banner">
+    <img src="loger.png" alt="Верхний баннер" class="top-banner-img full-loger" />
+    <img src="logo.png" alt="Сбер Университет" class="logo" />
+  </div>
 
   <main>
-    <section class="info-section">
+    <!-- Информационный раздел -->
+    <section class="info-section fade-in">
       <div class="container">
-        <h2>Привет!</h2>
-        <p>Мы получили твою регистрацию на праздник, который состоится 26-28 января в честь Дня Студента в СберУниверситете. В программе мастер-классы от ведущих сотрудников Сбера и преподавателей СберУниверситета, интеллектуальные бои, развлечения, музыка и спорт.</p>
-        <p>Для того, чтобы попасть к нам на праздник, необходимо написать эссе на тему «Роль технологий в жизни человека в 2035 году».</p>
-        <h3>Требования к эссе:</h3>
+        <h2 class="futuristic-text">Привет!</h2>
+        <p>Приглашаем принять участие в мероприятии, которое пройдёт в СберУниверситете с 8 по 11 мая, посвященное Дню Победы. Программа насыщенная: вас ждут мастер-классы от экспертов Сбербанка и преподавателей университета, интеллектуальные баталии, развлекательная программа, музыкальное сопровождение и спортивная активность.</p>
+        <p>Чтобы присоединиться к этому событию, вам предстоит подготовить эссе на тему: «День Победы в эпоху искусственного интеллекта: как технологии помогают сохранять память о героическом подвиге нашего народа».</p>
+        <h3>Основные требования:</h3>
         <ul>
-          <li><strong>Дедлайн:</strong> 15 декабря в 12:00 по Москве</li>
-          <li><strong>Количество знаков:</strong> до 1500 (без пробелов)</li>
-          <li><strong>Выравнивание:</strong> по ширине</li>
+          <li><strong>Дедлайн</strong>: 30 апреля в 12:00 по Москве</li>
+          <li><strong>Количество знаков</strong>: до 1500 (без пробелов)</li>
+          <li><strong>Остальные требования</strong>: указываются при заполнении формы</li>
         </ul>
-        <a href="quiz.html" class="btn">Перейти к опроснику</a>
+        <a href="https://forms.gle/your-google-form-link" target="_blank" class="btn futuristic-btn">Заполнить форму и отправить сочинение</a>
       </div>
     </section>
 
-    <div class="cat-container">
+    <!-- Анимированный кот -->
+    <div class="cat-container fade-in">
       <img src="Cat.gif" alt="СберКот" class="animated-cat" />
     </div>
   </main>
 
+  <!-- Футер -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Сбер Университет. Все права защищены.</p>
+      <p>&copy; 2025 СберУниверситет Все права защищены</p>
     </div>
   </footer>
+
+  <!-- JavaScript для анимаций -->
+  <script src="script.js"></script>
 </body>
 </html>

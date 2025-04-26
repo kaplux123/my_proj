@@ -1,50 +1,82 @@
 /* Общие стили */
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
   color: #ffffff;
-  background: linear-gradient(270deg, #00b140, #00c8a3, #4f74ff, #6a4fff);
-  background-size: 800% 800%;
-  animation: gradientShift 20s ease infinite;
+  background: linear-gradient(135deg, #00b140, #007a2f);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
-/* Анимация переливающегося фона */
-@keyframes gradientShift {
+/* Анимированный фон с частицами */
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Верхний баннер */
+.top-banner {
+  position: relative;
+  width: 100%;
+  height: auto; /* Автоматическая высота для полного изображения */
+  overflow: hidden;
+}
+
+.full-loger {
+  width: 100%;
+  height: auto; /* Полное изображение без обрезки */
+  object-fit: contain; /* Сохраняем пропорции */
+  filter: brightness(0.8); /* Затемнение для контраста */
+  animation: fadeInBanner 2s ease-in-out forwards;
+}
+
+@keyframes fadeInBanner {
   0% {
-      background-position: 0% 50%;
-  }
-  50% {
-      background-position: 100% 50%;
+    opacity: 0;
+    transform: scale(1.1);
   }
   100% {
-      background-position: 0% 50%;
+    opacity: 1;
+    transform: scale(1);
   }
-}
-
-header {
-  padding: 40px 0;
-  background: transparent;
-  text-align: center;
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .logo {
-  height: 80px;
-  margin-bottom: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 60px; /* размер логотипа */
+  z-index: 10; /* поверх баннера */
+  opacity: 0;
+  animation: fadeInLogo 2s ease-in-out forwards;
+}
+
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 main {
@@ -52,36 +84,98 @@ main {
   padding: 40px 0;
 }
 
+/* Информационный раздел */
 .info-section {
   text-align: center;
   color: #ffffff;
   padding: 40px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  margin-top: 40px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
-h2, h3 {
-  color: #ffffff;
+/* Футуристический текст */
+.futuristic-text {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00ff99, #00b140, #00ff99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hologram 3s infinite;
 }
 
+@keyframes hologram {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #e0f3ea;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+ul {
+  text-align: left;
+  margin: 20px auto;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+li::before {
+  content: '•';
+  color: #00b140;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+/* Кнопка с футуристическим эффектом */
 .btn {
   display: inline-block;
-  padding: 14px 30px;
-  background-color: #ffffff;
-  color: #00b140;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #00ff99, #00b140);
+  color: #ffffff;
+  border: 2px solid #00ff99;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 18px;
+  transition: all 0.3s ease;
   margin-top: 20px;
+  box-shadow: 0 6px 12px rgba(0, 255, 153, 0.5);
 }
 
 .btn:hover {
-  background-color: #e0f3ea;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #00b140, #00ff99);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 255, 153, 0.8), 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-color: #ffffff;
 }
 
+/* Анимированный кот */
 .cat-container {
   text-align: center;
   margin-top: 40px;
@@ -90,27 +184,41 @@ h2, h3 {
 .animated-cat {
   width: 250px;
   height: auto;
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
   50% {
-      transform: translateY(-15px);
+    transform: translateY(-20px);
   }
 }
 
+/* Футер */
 footer {
   text-align: center;
   padding: 20px 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
   font-size: 0.9em;
   color: #ffffff;
   margin-top: 40px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
   margin: 0;
+}
+
+/* Плавное появление контента */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
 }
