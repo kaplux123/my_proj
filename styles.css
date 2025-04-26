@@ -39,6 +39,7 @@ body {
   object-fit: contain; /* Сохраняем пропорции */
   filter: brightness(0.8); /* Затемнение для контраста */
   animation: fadeInBanner 2s ease-in-out forwards;
+  margin-top: 80px; /* Отступ сверху, чтобы освободить место для логотипа */
 }
 
 @keyframes fadeInBanner {
@@ -54,10 +55,11 @@ body {
 
 .logo {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  height: 60px; /* размер логотипа */
-  z-index: 10; /* поверх баннера */
+  top: 20px; /* Логотип фиксируется в самом верху */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translateX(-50%); /* Корректируем центрирование */
+  height: 60px; /* Размер логотипа */
+  z-index: 10; /* Поверх баннера */
   opacity: 0;
   animation: fadeInLogo 2s ease-in-out forwards;
 }
