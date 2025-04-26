@@ -2,123 +2,161 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация на мероприятие</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #e5f4ee;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f9;
         }
-        .container {
-            max-width: 700px;
-            margin: 40px auto;
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 30px 40px;
-            box-shadow: 0 8px 20px rgba(0, 128, 0, 0.1);
-        }
-        h2 {
+        header {
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
-            color: #007f3e;
-            font-size: 28px;
-            margin-bottom: 10px;
+            padding: 1rem;
+        }
+        main {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #45a049;
         }
         .description {
-            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 30px;
             font-size: 16px;
             color: #333;
-            margin-bottom: 30px;
         }
-        label {
-            display: block;
-            margin-top: 20px;
-            font-weight: 600;
-            color: #007f3e;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea {
-            width: 100%;
-            padding: 12px 15px;
-            margin-top: 8px;
-            border: 2px solid #cce3d4;
-            border-radius: 12px;
-            background-color: #f8fdfb;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        textarea:focus {
-            border-color: #00a45e;
-            outline: none;
-            background-color: #ffffff;
-        }
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        button {
-            margin-top: 30px;
-            width: 100%;
-            background-color: #00a45e;
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
             color: white;
-            padding: 15px;
-            font-size: 18px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #008c4a;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Регистрация на мероприятие</h2>
-    <div class="description">
-        Привет!<br><br>
-        Приглашаем тебя посетить наше мероприятие в Сберуниверситете 9 мая.<br>
-        Чтобы стать участником, заполните предложенную анкету — мы обязательно сообщим вам о результатах отбора.
-    </div>
+<header>
+    <h1>Регистрация на мероприятие</h1>
+    <p>Привет! Приглашаем тебя посетить наше мероприятие в Сберуниверситете 9 мая. Чтобы стать участником, заполните предложенную анкету — мы обязательно сообщим вам о результатах отбора.</p>
+</header>
 
-    <form action="submit_form.php" method="POST">
+<main>
+    <form id="registrationForm">
         <label for="first_name">Имя:</label>
-        <input type="text" id="first_name" name="first_name" required>
+        <input type="text" id="first_name" required>
 
         <label for="last_name">Фамилия:</label>
-        <input type="text" id="last_name" name="last_name" required>
+        <input type="text" id="last_name" required>
 
         <label for="email">Адрес электронной почты:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" required>
 
         <label for="telegram">Ваш ник в Telegram:</label>
-        <input type="text" id="telegram" name="telegram" required>
+        <input type="text" id="telegram" required>
 
         <label for="phone">Номер телефона:</label>
-        <input type="tel" id="phone" name="phone" required>
+        <input type="text" id="phone" required>
 
         <label for="institute">Учебное заведение:</label>
-        <input type="text" id="institute" name="institute" required>
+        <input type="text" id="institute" required>
 
         <label for="specialty">Специальность:</label>
-        <input type="text" id="specialty" name="specialty" required>
+        <input type="text" id="specialty" required>
 
         <label for="city">Город:</label>
-        <input type="text" id="city" name="city" required>
+        <input type="text" id="city" required>
 
-        <label for="essay">Эссе на тему: «9 мая в эпоху искусственного интеллекта: как технологии сохраняют память о подвиге»:</label>
-        <textarea id="essay" name="essay" placeholder="Напишите здесь ваше эссе..." required></textarea>
+        <label for="essay">Эссе на тему «9 мая в эпоху искусственного интеллекта: как технологии сохраняют память о подвиге»:</label>
+        <textarea id="essay" required></textarea>
 
         <button type="submit">Отправить</button>
     </form>
-</div>
+</main>
+
+<footer>
+    <p>&copy; 2025 Сберуниверситет. Все права защищены.</p>
+</footer>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+        const firstName = document.getElementById('first_name').value;
+        const lastName = document.getElementById('last_name').value;
+        const email = document.getElementById('email').value;
+        const telegram = document.getElementById('telegram').value;
+        const phone = document.getElementById('phone').value;
+        const institute = document.getElementById('institute').value;
+        const specialty = document.getElementById('specialty').value;
+        const city = document.getElementById('city').value;
+        const essay = document.getElementById('essay').value;
+
+        // Валидация email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert('Пожалуйста, введите корректный email.');
+            return;
+        }
+
+        // Собираем данные для отправки
+        const formData = new FormData();
+        formData.append('entry.2005620554', firstName); // Имя
+        formData.append('entry.1923165250', lastName); // Фамилия
+        formData.append('entry.1045781291', email); // Email
+        formData.append('entry.1065046570', telegram); // Телеграм
+        formData.append('entry.1166974658', phone); // Телефон
+        formData.append('entry.1623037028', institute); // Институт
+        formData.append('entry.130738791', specialty); // Специальность
+        formData.append('entry.103491683', city); // Город
+        formData.append('entry.839337160', essay); // Эссе
+
+        // ⚡ Здесь нужно заменить ссылку на твою Google форму!
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSche9vzN0E9jdta84Z8aQZaYFjVJ6op-8scGv7Lc4lWBIXshg/formResponse', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        })
+        .then(() => {
+            alert('Спасибо за регистрацию!');
+            document.getElementById('registrationForm').reset();
+        })
+        .catch((error) => {
+            console.error('Ошибка при отправке данных:', error);
+            alert('Произошла ошибка. Пожалуйста, попробуйте позже.');
+        });
+    });
+</script>
 
 </body>
 </html>
