@@ -15,7 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-
 /* Анимированный фон с частицами */
 #particles-js {
   position: absolute;
@@ -233,7 +232,6 @@ footer {
 footer p {
   margin: 0;
 }
-
 
 /* Плавное появление контента */
 .fade-in {
