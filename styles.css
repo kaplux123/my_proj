@@ -58,7 +58,8 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  height: 60px; /* Размер логотипа */
+  height: 60px; /* Размер логотипа для больших экранов */
+  max-width: 150px; /* Ограничение ширины */
   z-index: 10; /* Поверх баннера */
   opacity: 0;
   animation: fadeInLogo 2s ease-in-out forwards;
@@ -250,21 +251,23 @@ footer p {
 /* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
   body {
-    padding-top: 50px; /* Уменьшите отступ для мобильных устройств */
+    padding-top: 60px; /* Уменьшите отступ для мобильных устройств */
   }
 
   .logo {
-    position: relative; /* Переключитесь на относительное позиционирование */
-    height: 40px; /* Уменьшите размер логотипа */
-    top: 10px; /* Сдвиньте логотип выше */
-    left: 10px; /* Сдвиньте логотип левее */
-    margin: 0 auto; /* Центрируйте логотип */
-    display: block; /* Убедитесь, что он занимает всю ширину */
-    text-align: center; /* Выровняйте по центру */
+    position: relative; /* Измените позиционирование */
+    height: 40px; /* Уменьшите высоту */
+    max-width: 100px; /* Ограничение ширины для мобильных */
+    margin: 0 auto; /* Центрируйте по горизонтали */
+    display: block;
+    text-align: center;
+
+    /* Опустите логотип ниже */
+    margin-top: 30px; /* Отступ сверху */
   }
 
   .top-banner {
-    height: auto; /* Убедитесь, что баннер не обрезается */
+    margin-top: 60px; /* Добавьте отступ под логотип */
   }
 
   .full-loger {
