@@ -1,132 +1,124 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Опросник</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f9;
-    }
-    header {
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    main {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    form label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    form button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #45a049;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #333;
-      color: white;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Регистрация на мероприятие</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #e5f4ee;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 8px 20px rgba(0, 128, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #007f3e;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .description {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #007f3e;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 8px;
+            border: 2px solid #cce3d4;
+            border-radius: 12px;
+            background-color: #f8fdfb;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #00a45e;
+            outline: none;
+            background-color: #ffffff;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        button {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #00a45e;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #008c4a;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Опросник</h1>
-    <p>Заполните форму ниже, чтобы продолжить.</p>
-  </header>
 
-  <main>
-    <form id="quizForm">
-      <label for="name">Ваше имя:</label>
-      <input type="text" id="name" required>
+<div class="container">
+    <h2>Регистрация на мероприятие</h2>
+    <div class="description">
+        Привет!<br><br>
+        Приглашаем тебя посетить наше мероприятие в Сберуниверситете 9 мая.<br>
+        Чтобы стать участником, заполните предложенную анкету — мы обязательно сообщим вам о результатах отбора.
+    </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
+    <form action="submit_form.php" method="POST">
+        <label for="first_name">Имя:</label>
+        <input type="text" id="first_name" name="first_name" required>
 
-      <label for="address">Адрес:</label>
-      <input type="text" id="address" required>
+        <label for="last_name">Фамилия:</label>
+        <input type="text" id="last_name" name="last_name" required>
 
-      <label for="phone">Номер телефона:</label>
-      <input type="text" id="phone" required>
+        <label for="email">Адрес электронной почты:</label>
+        <input type="email" id="email" name="email" required>
 
-      <label for="comments">Комментарии:</label>
-      <textarea id="comments"></textarea>
+        <label for="telegram">Ваш ник в Telegram:</label>
+        <input type="text" id="telegram" name="telegram" required>
 
-      <button type="submit" class="btn">Отправить</button>
+        <label for="phone">Номер телефона:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="institute">Институт:</label>
+        <input type="text" id="institute" name="institute" required>
+
+        <label for="specialty">Специальность:</label>
+        <input type="text" id="specialty" name="specialty" required>
+
+        <label for="city">Город:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="essay">Эссе на тему: «9 мая в эпоху искусственного интеллекта: как технологии сохраняют память о подвиге»:</label>
+        <textarea id="essay" name="essay" placeholder="Напишите здесь ваше эссе..." required></textarea>
+
+        <button type="submit">Отправить</button>
     </form>
-  </main>
+</div>
 
-  <footer>
-    <p>&copy; 2025 Ваш сайт. Все права защищены.</p>
-  </footer>
-
-  <script>
-    document.getElementById('quizForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const address = document.getElementById('address').value;
-      const phone = document.getElementById('phone').value;
-      const comments = document.getElementById('comments').value;
-
-      // Валидация email
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        alert('Пожалуйста, введите корректный email.');
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append('entry.2005620554', name);
-      formData.append('entry.1045781291', email);
-      formData.append('entry.1065046570', address);
-      formData.append('entry.1166974658', phone);
-      formData.append('entry.839337160', comments);
-
-      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdkqmHbM98YfxXfFaWhWWr6KyuLJZrssY3wGVYyZrIK_Gl97A/formResponse', {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      })
-      .then(() => {
-        alert('Спасибо за заполнение опросника!');
-        document.getElementById('quizForm').reset();
-      })
-      .catch((error) => {
-        console.error('Ошибка при отправке данных:', error);
-        alert('Произошла ошибка. Пожалуйста, попробуйте позже.');
-      });
-    });
-  </script>
 </body>
 </html>
