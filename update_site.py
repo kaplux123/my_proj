@@ -22,6 +22,7 @@ body {
     overflow: hidden;
 }
 
+
 .background-animation::before {
     content: '';
     position: absolute;
